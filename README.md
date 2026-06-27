@@ -50,6 +50,8 @@
 5. 설치가 끝나면 PotPlayer를 다시 켭니다.
 6. PotPlayer에서 치지직 라이브/다시보기 URL을 열어봅니다.
 
+가장 안정적인 방식은 주소창의 `https://chzzk.naver.com/live/...` 또는 `https://chzzk.naver.com/video/...` URL을 PotPlayer에서 직접 여는 것입니다.
+
 업데이트는 `update-potplayer-ytdlp.cmd`를 실행하면 됩니다. 최신 파일로 다시 받아오고 기존 파일은 백업합니다.
 
 설치 확인만 하고 싶으면 `check-potplayer-ytdlp.cmd`를 실행하세요.
@@ -98,6 +100,8 @@ It is useful when old manual installation guides ship outdated files and Chzzk, 
 4. Allow the Windows administrator prompt.
 5. Restart PotPlayer.
 6. Open a Chzzk, YouTube, Naver, or other supported URL in PotPlayer.
+
+For the most reliable flow, open the actual Chzzk page URL, such as `https://chzzk.naver.com/live/...` or `https://chzzk.naver.com/video/...`, directly in PotPlayer.
 
 ### Notes
 
