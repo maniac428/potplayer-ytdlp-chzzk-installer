@@ -1,74 +1,63 @@
-# 치지직 팟플레이어 yt-dlp 설치기
+# Chzzk PotPlayer yt-dlp Installer
 
-치지직, 유튜브, 네이버, 기타 `yt-dlp` 지원 링크를 PotPlayer에서 열 수 있도록 PotPlayer용 `yt-dlp` 재생 확장을 설치/업데이트하는 Windows용 도구입니다.
+Languages: [한국어](#한국어) | [English](#english)
 
-관련 프로젝트:
+Related project:
 
-- 치지직 PotPlayer yt-dlp 설치기: [chzzk-potplayer-ytdlp-installer](https://github.com/maniac428/chzzk-potplayer-ytdlp-installer)
 - Twitch PotPlayer 720p Fix: [twitch-potplayer-720p-fix](https://github.com/maniac428/twitch-potplayer-720p-fix)
 
-## 이런 사람에게 추천
+## 한국어
 
-- 치지직 링크를 PotPlayer에 붙여넣어 보고 싶은 사람
-- 브라우저 플레이어 대신 외부 플레이어로 보고 싶은 사람
-- 별도 고화질/그리드 프로그램 설치가 부담스러운 사람
-- 브라우저 광고 화면이나 플레이어 UI 없이 PotPlayer에서 보고 싶은 사람
-- 오래된 커뮤니티 글의 수동 설치 파일 대신 최신 `yt-dlp` 기반 파일을 쓰고 싶은 사람
+**Chzzk PotPlayer yt-dlp Installer**는 치지직, 네이버, 유튜브 등 `yt-dlp` 지원 링크를 PotPlayer에서 열 수 있게 해주는 Windows용 설치 도구입니다.
 
-## 설치되는 것
+복잡한 수동 설치 대신 ZIP을 받고 `install-potplayer-ytdlp.cmd`를 실행하면, PotPlayer용 `yt-dlp` 재생 확장과 최신 `yt-dlp.exe`를 설치/업데이트합니다.
 
-- PotPlayer `Extension\Media\PlayParse` 폴더에 `MediaPlayParse - yt-dlp.as` 설치
-- PotPlayer `Module` 폴더에 최신 `yt-dlp.exe` 설치
-- PotPlayer 사용자 설정 `yt-dlp.ini`에 시청용 기본값 적용: `live_chat=0`, `reduce_formats=1`
-- 기존 파일은 `Backup_PotPlayer_yt-dlp_날짜` 폴더에 자동 백업
-- 설치 후 `chzzk:live`, `chzzk:video` 지원 여부 확인
-
-## 장점
-
-- 공식 GitHub 원본에서 최신 파일을 받습니다.
-- 설치, 업데이트, 확인을 각각 `.cmd` 파일 하나로 처리합니다.
-- 기존 파일을 자동 백업하므로 문제가 생겼을 때 되돌리기 쉽습니다.
-- 치지직뿐 아니라 YouTube, Naver 등 yt-dlp 지원 사이트에도 활용할 수 있습니다.
-
-## 다운로드
-
-초보자는 Releases에서 ZIP 파일을 받는 것을 권장합니다.
+### 필요한 것
 
 | 항목 | 링크 |
 | --- | --- |
-| 초보자용 ZIP | [chzzk-potplayer-ytdlp-installer-beginner.zip](https://github.com/maniac428/chzzk-potplayer-ytdlp-installer/releases/latest/download/chzzk-potplayer-ytdlp-installer-beginner.zip) |
-| 전체 저장소 ZIP | [main.zip](https://github.com/maniac428/chzzk-potplayer-ytdlp-installer/archive/refs/heads/main.zip) |
-| PotPlayer 공식 페이지 | [potplayer.tv](https://potplayer.tv/) |
+| 최신 릴리스 ZIP | [GitHub Releases](https://github.com/maniac428/chzzk-potplayer-ytdlp-installer/releases/latest) |
+| PotPlayer 64비트 | [potplayer.tv](https://potplayer.tv/) |
 | PotPlayer yt-dlp 확장 원본 | [hgcat-360/PotPlayer-Extension_yt-dlp](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) |
 | yt-dlp 공식 릴리스 | [yt-dlp/yt-dlp releases](https://github.com/yt-dlp/yt-dlp/releases/latest) |
 
-## 사용법
+랜덤 블로그나 출처 불명의 exe 설치기를 피하세요. 가장 단순한 조합은 공식 PotPlayer 64비트 + 공식 GitHub 원본 파일 + 이 설치기 ZIP입니다.
+
+### 사용법
 
 1. PotPlayer를 종료합니다.
-2. ZIP을 다운로드하고 압축을 풉니다.
+2. 최신 릴리스 ZIP을 받고 압축을 풉니다.
 3. `install-potplayer-ytdlp.cmd`를 실행합니다.
 4. Windows 관리자 권한 요청이 뜨면 허용합니다.
 5. 설치가 끝나면 PotPlayer를 다시 켭니다.
-6. PotPlayer에서 치지직 라이브/다시보기 URL을 열어봅니다.
+6. PotPlayer에서 치지직 라이브/다시보기 URL을 엽니다.
 
-가장 안정적인 방식은 주소창의 `https://chzzk.naver.com/live/...` 또는 `https://chzzk.naver.com/video/...` URL을 PotPlayer에서 직접 여는 것입니다.
+가장 안정적인 주소 형식:
 
-업데이트는 `update-potplayer-ytdlp.cmd`를 실행하면 됩니다. 최신 파일로 다시 받아오고 기존 파일은 백업합니다.
+```text
+https://chzzk.naver.com/live/...
+https://chzzk.naver.com/video/...
+```
 
-설치 확인만 하고 싶으면 `check-potplayer-ytdlp.cmd`를 실행하세요.
+업데이트는 `update-potplayer-ytdlp.cmd`, 설치 확인은 `check-potplayer-ytdlp.cmd`를 실행하면 됩니다.
 
-설치기는 치지직 시청용으로 `live_chat=0`, `reduce_formats=1`을 자동 적용합니다. 라이브 채팅용 WebView2를 같이 띄우지 않고, 품질 후보 메뉴를 줄여 PotPlayer가 더 가볍게 열리도록 하기 위한 설정입니다.
+### 설치되는 것
 
-## 중요한 오해 방지
+- `MediaPlayParse - yt-dlp.as`
+- `yt-dlp_default.ini` 및 보조 파일
+- 최신 `yt-dlp.exe`
+- 치지직 시청용 기본값: `live_chat=0`, `reduce_formats=1`
+- 기존 파일 자동 백업
+
+### 주의
 
 - 이 도구는 치지직 전용 불법 우회 도구가 아닙니다. PotPlayer에 yt-dlp 기반 URL 해석 확장을 설치하는 도구입니다.
-- “그리드 프로그램 없이 보기”는 PotPlayer에서 yt-dlp가 링크를 정상 해석할 때 가능한 대안입니다. 로그인, 성인 인증, 지역 제한, 사이트 정책 변경이 있으면 실패할 수 있습니다.
-- “광고 없이 보기”는 브라우저 플레이어 대신 PotPlayer로 열었을 때 광고 화면이나 웹 플레이어 UI가 나오지 않는 경우를 설명하는 것입니다. 플랫폼의 서버 삽입 광고, 정책 변경, 재생 방식 변경까지 영구적으로 막는 광고 차단 도구가 아닙니다.
-- 치지직 방송 자체가 특정 화질까지만 제공하면 PotPlayer에서도 그 이상으로 올라가지 않습니다.
-- Twitch 720p/source quality 문제 해결용 저장소가 아닙니다. Twitch 원본화질은 별도 방식이 필요합니다.
-- 출처 불명의 exe 설치기를 피하고 싶다면 이 저장소처럼 원본 저장소와 공식 yt-dlp 릴리스 기준으로 설치하는 편이 안전합니다.
+- 그리드 프로그램 없이 보는 대안이 될 수 있지만, 로그인, 성인 인증, 지역 제한, 사이트 정책 변경이 있으면 실패할 수 있습니다.
+- "광고 없이 보기"는 PotPlayer로 직접 열 때 웹 플레이어 광고 화면이나 UI를 피할 수 있다는 뜻입니다. 모든 광고를 영구 차단한다고 보장하는 도구는 아닙니다.
+- 방송 자체가 특정 화질까지만 제공하면 PotPlayer에서도 그 이상으로 올라가지 않습니다.
+- Twitch 720p/source quality 문제는 별도 프로젝트를 사용하세요.
 
-## 설치 위치
+### 설치 위치
 
 일반적인 64비트 PotPlayer 기준:
 
@@ -79,43 +68,56 @@ C:\Program Files\DAUM\PotPlayer\Module\yt-dlp.exe
 C:\Users\<name>\AppData\Roaming\PotPlayerMini64\Extension\Media\PlayParse\yt-dlp.ini
 ```
 
-## Sweet Spot
-
-대부분의 한국 사용자에게는 **PotPlayer 64비트 + 이 설치기 + 최신 yt-dlp** 조합이 가장 단순합니다. Streamlink나 별도 브릿지까지 얹는 방식은 버퍼/관리 포인트가 늘어날 수 있으므로, 치지직 링크를 PotPlayer로 여는 목적이라면 이 조합부터 시도하는 것이 비용 대비 효율이 좋습니다.
-
 ## English
 
-**PotPlayer yt-dlp Chzzk Installer** installs or updates PotPlayer's yt-dlp media parser extension from official GitHub sources.
+**Chzzk PotPlayer yt-dlp Installer** is a small Windows installer that lets PotPlayer open Chzzk, Naver, YouTube, and other `yt-dlp` supported URLs.
 
-It is useful when old manual installation guides ship outdated files and Chzzk, YouTube, Naver, or other yt-dlp-supported URLs no longer open correctly in PotPlayer. For Korean Chzzk users, it can also be a simple external-player alternative when they do not want to install a separate browser high-quality/grid program or prefer watching outside the browser player.
+Instead of following old manual installation guides, download the ZIP and run `install-potplayer-ytdlp.cmd`. It installs or updates PotPlayer's yt-dlp media parser extension and the latest `yt-dlp.exe`.
 
-### What It Installs
+### Requirements
 
-- `MediaPlayParse - yt-dlp.as` into PotPlayer's `Extension\Media\PlayParse` folder
-- `yt-dlp_default.ini` and helper assets
-- Latest `yt-dlp.exe` into PotPlayer's `Module` folder
-- Viewing defaults in the PotPlayer user config: `live_chat=0`, `reduce_formats=1`
-- A timestamped backup of existing files
+| Item | Link |
+| --- | --- |
+| Latest release ZIP | [GitHub Releases](https://github.com/maniac428/chzzk-potplayer-ytdlp-installer/releases/latest) |
+| PotPlayer 64-bit | [potplayer.tv](https://potplayer.tv/) |
+| PotPlayer yt-dlp extension source | [hgcat-360/PotPlayer-Extension_yt-dlp](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) |
+| yt-dlp official release | [yt-dlp/yt-dlp releases](https://github.com/yt-dlp/yt-dlp/releases/latest) |
+
+Avoid random mirror sites and unknown exe installers. The practical sweet spot is official PotPlayer 64-bit + official GitHub source files + this installer ZIP.
 
 ### Usage
 
 1. Close PotPlayer.
-2. Download and extract the ZIP from Releases.
+2. Download and extract the latest release ZIP.
 3. Run `install-potplayer-ytdlp.cmd`.
 4. Allow the Windows administrator prompt.
 5. Restart PotPlayer.
-6. Open a Chzzk, YouTube, Naver, or other supported URL in PotPlayer.
+6. Open a Chzzk live or replay URL in PotPlayer.
 
-For the most reliable flow, open the actual Chzzk page URL, such as `https://chzzk.naver.com/live/...` or `https://chzzk.naver.com/video/...`, directly in PotPlayer.
+Most reliable URL formats:
 
-The installer applies `live_chat=0` and `reduce_formats=1` for Chzzk viewing. This avoids opening the live-chat WebView2 path and keeps the PotPlayer quality menu lighter.
+```text
+https://chzzk.naver.com/live/...
+https://chzzk.naver.com/video/...
+```
+
+Run `update-potplayer-ytdlp.cmd` to update, or `check-potplayer-ytdlp.cmd` to check the installation.
+
+### What It Installs
+
+- `MediaPlayParse - yt-dlp.as`
+- `yt-dlp_default.ini` and helper files
+- Latest `yt-dlp.exe`
+- Chzzk viewing defaults: `live_chat=0`, `reduce_formats=1`
+- Automatic backup of existing files
 
 ### Notes
 
-- This is not a Twitch 720p/source-quality bypass.
-- This is not a guaranteed permanent ad blocker. It sets up PotPlayer playback through yt-dlp-supported URLs.
-- Login, adult, or region-restricted content may still fail.
-- The installer downloads only from official GitHub sources.
+- This is not an illegal Chzzk bypass tool. It installs a yt-dlp based URL parser for PotPlayer.
+- It can be a no-grid external-player alternative, but login, adult, region, or site policy restrictions may still fail.
+- "No ads" means opening directly in PotPlayer may avoid web-player ad screens or UI in some setups. It is not a guaranteed permanent ad blocker.
+- PotPlayer cannot exceed the quality actually provided by the stream.
+- Use the separate Twitch project for Twitch 720p/source-quality issues.
 
 ## Sources
 
