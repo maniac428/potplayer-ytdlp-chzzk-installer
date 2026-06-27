@@ -1,1 +1,1 @@
-One-click PotPlayer yt-dlp installer for Chzzk, YouTube, Naver, and other supported URLs.
+치지직 팟플레이어 yt-dlp 설치기: 그리드 설치 없이 Chzzk, YouTube, Naver 링크를 PotPlayer에서 열기.
