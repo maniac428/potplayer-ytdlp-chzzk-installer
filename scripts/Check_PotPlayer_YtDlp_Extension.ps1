@@ -73,6 +73,42 @@ function Resolve-PotPlayerRoot {
     throw "PotPlayer was not found."
 }
 
+function Get-PotPlayerProfileNames {
+    param([string]$Root)
+
+    $names = New-Object System.Collections.Generic.List[string]
+
+    if ((Test-Path -LiteralPath (Join-Path $Root "PotPlayerMini64.exe")) -or
+        (Test-Path -LiteralPath (Join-Path $Root "PotPlayer64.exe"))) {
+        $names.Add("PotPlayerMini64")
+    }
+
+    if ((Test-Path -LiteralPath (Join-Path $Root "PotPlayerMini.exe")) -or
+        (Test-Path -LiteralPath (Join-Path $Root "PotPlayer.exe"))) {
+        $names.Add("PotPlayerMini")
+    }
+
+    if ($names.Count -eq 0) {
+        $names.Add("PotPlayerMini64")
+    }
+
+    return $names | Select-Object -Unique
+}
+
+function Get-IniValue {
+    param(
+        [string]$Text,
+        [string]$Name
+    )
+
+    $match = [regex]::Match($Text, "(?m)^" + [regex]::Escape($Name) + "=(.*)$")
+    if ($match.Success) {
+        return $match.Groups[1].Value.Trim()
+    }
+
+    return ""
+}
+
 try {
     $root = Resolve-PotPlayerRoot
     $extension = Join-Path $root "Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as"
@@ -103,6 +139,34 @@ try {
         }
         else {
             Write-Host "[MISSING] Chzzk extractors were not detected. Update yt-dlp." -ForegroundColor Red
+        }
+    }
+
+    Write-Host ""
+    foreach ($profileName in Get-PotPlayerProfileNames -Root $root) {
+        $userConfig = Join-Path $env:APPDATA (Join-Path $profileName "Extension\Media\PlayParse\yt-dlp.ini")
+        if (-not (Test-Path -LiteralPath $userConfig -PathType Leaf)) {
+            Write-Host "[MISSING] User config: $userConfig" -ForegroundColor Yellow
+            continue
+        }
+
+        $text = Get-Content -LiteralPath $userConfig -Raw
+        $liveChat = Get-IniValue -Text $text -Name "live_chat"
+        $reduceFormats = Get-IniValue -Text $text -Name "reduce_formats"
+
+        Write-Host "User config: $userConfig"
+        if ($liveChat -eq "0") {
+            Write-Host "[OK] live_chat=0" -ForegroundColor Green
+        }
+        else {
+            Write-Host "[WARN] live_chat=$liveChat (recommended: 0)" -ForegroundColor Yellow
+        }
+
+        if ($reduceFormats -eq "1") {
+            Write-Host "[OK] reduce_formats=1" -ForegroundColor Green
+        }
+        else {
+            Write-Host "[WARN] reduce_formats=$reduceFormats (recommended: 1)" -ForegroundColor Yellow
         }
     }
 }
